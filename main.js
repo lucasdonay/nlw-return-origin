@@ -1,9 +1,33 @@
-function onScroll() {
+window.addEventListener('scroll', onScroll)
 
+onScroll()
+function onScroll() {
+showNavOnScroll()
+showBackToTopButtonOnScroll()
+showmeBackToTopButtonOnScroll()
+}
+
+function showNavOnScroll() {  
   if(scrollY > 0) {
     navigation.classList.add('scroll')
   } else {
     navigation.classList.remove('scroll')
+  }
+}
+
+function showBackToTopButtonOnScroll() {  
+  if(scrollY > 900) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
+}
+
+function showmeBackToTopButtonOnScroll() {  
+  if(scrollY > 4115) {
+    backToTopButton.classList.add('showme')
+  } else {
+    backToTopButton.classList.remove('showme')
   }
 }
 
