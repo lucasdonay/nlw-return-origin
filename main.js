@@ -24,7 +24,7 @@ function showBackToTopButtonOnScroll() {
 }
 
 function showmeBackToTopButtonOnScroll() {  
-  if(scrollY > 3515) {
+  if(scrollY > 2325) {
     backToTopButton.classList.add('showme')
   } else {
     backToTopButton.classList.remove('showme')

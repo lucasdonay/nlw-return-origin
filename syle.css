@@ -288,13 +288,14 @@ body.menu-expanded button path {
 
 /*=== #HOME =================================*/
 #home {
+  padding-block: 0;
   padding-top: calc(4.1rem + var(--nav-height));
 }
 
 #home::before {
   content: '';
   width: 100%;
-  height: calc(108rem + var(--nav-height));
+  height: calc(80% + var(--nav-height));
   background-color: var(--brand-light);
   display: block;
 
@@ -484,9 +485,31 @@ footer .social-links {
 @media (min-width: 1024px) {
 
   /* GERAL */
+
+  body {
+    overflow: auto;
+  }
+
   .wrapper {
     width: min(122rem, 100%);
     display: grid;
+  }
+
+  .col-a {
+    grid-area: A;
+  }
+
+  .col-b {
+    grid-area: B;
+  }
+
+  section {
+    padding-block: 16rem;
+  }
+
+  section header h2 {
+    font-size: 4rem;
+    line-height: 5.2rem;
   }
 
   /* NAVIGATION */
@@ -590,31 +613,46 @@ footer .social-links {
   }
 
   nav#navigation .menu a.button:hover {
-    background-color: white;
+    background-color: var(--brand-beige);
     color: var(--primary-color);
     border: none;
     font-weight: 700;
   }
 
   /* HOME */
+
+  #home::before {
+    height: calc(89% - var(--nav-height));
+  }
+
+  #home {
+    padding: var(--nav-height);
+  }
+
   #home .wrapper {
     grid-template-columns: 60.5rem 1fr;
     grid-template-areas: 'A B'
                          'C C';
   }
 
-  #home .col-a {
-    grid-area: A;
+  #home .col-a {    
     text-align: left;
-  }
-
-  #home .col-b {
-    grid-area: B;
+    align-self: center;
   }
 
   #home .stats {
     grid-area: C;
     flex-direction: row;
+    padding: 6rem;
+    gap: 0;
+  }
+
+  #home .stats .stat + .stat {
+    border-left: 1px solid var(--primary-color);
+  }
+
+  #home .stats .stat {
+    flex: 1;
   }
 
   #home .button {
@@ -623,5 +661,78 @@ footer .social-links {
 
   #home img {
     width: 42rem;
+  }
+
+  /* SERVICES */
+
+  #services h2 {
+    width: 50rem;
+    margin: 0 auto;
+  }
+
+  #services .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #services .card {
+    width: 30%;
+    flex-grow: 1;
+  }
+
+  /* ABOUT */
+
+  #about .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'B A';
+    gap: 6.2rem;
+  }
+
+  #about .col-a {
+    align-self: center;    
+  }
+
+  #about img {
+    width: 48rem;
+    height: 41rem;
+  }
+
+  #about .content p {
+    margin-bottom: 0;
+  }
+
+/* CONTACT */
+
+  #contact .wrapper {
+    grid-template-columns: 1fr 57rem;
+    grid-template-areas: 'A B';
+  }
+
+  #contact h2 {
+    width: 40rem;
+  }
+
+  /* FOOTER */
+
+  footer {
+    padding-block: 8rem;
+  }
+
+  footer .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'A B';
+  }
+
+  footer .col-b {
+    align-self: center;
+    justify-self: end;
+  }
+
+  footer p {
+    margin-bottom: 0;
+  }
+
+  footer .col-a {
+    align-self: center;
   }
 }
